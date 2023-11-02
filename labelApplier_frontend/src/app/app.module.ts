@@ -6,6 +6,10 @@ import { AppComponent } from './app.component';
 import { TextWriterComponent } from './text-writer/text-writer.component';
 import { LabelManagerComponent } from './label-manager/label-manager.component';
 import { LabelApplierComponent } from './label-applier/label-applier.component';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import {MatInputModule} from '@angular/material/input';
+import {MatFormFieldModule} from '@angular/material/form-field';
+import {FormsModule} from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -16,7 +20,11 @@ import { LabelApplierComponent } from './label-applier/label-applier.component';
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    BrowserAnimationsModule,
+    MatInputModule,
+    MatFormFieldModule,
+    FormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

@@ -1,1 +1,15 @@
-<p>label-manager works!</p>
+<body>
+    <div class="page-header">
+        <h1>Label Manager</h1>
+    </div>
+    <div class="labels-list">
+        <div class="label-container" *ngFor="let label of labels">
+            <div class="label-name">
+                {{label.label_name}}
+            </div>
+            <div class="label-color">
+                {{label.label_color}}
+            </div>
+        </div>
+    </div>
+</body>

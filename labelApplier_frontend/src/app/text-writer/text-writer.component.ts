@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-text-writer',
@@ -6,5 +7,9 @@ import { Component } from '@angular/core';
   styleUrls: ['./text-writer.component.css']
 })
 export class TextWriterComponent {
+  constructor(private router: Router) {}
 
+  navigateToLabels() {
+    this.router.navigate(['/labels']);
+  }
 }

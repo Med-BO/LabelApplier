@@ -7,9 +7,19 @@ import { Router } from '@angular/router';
   styleUrls: ['./text-writer.component.css']
 })
 export class TextWriterComponent {
+  textToLabel: string = "";
+
   constructor(private router: Router) {}
 
   navigateToLabels() {
     this.router.navigate(['/labels']);
+  }
+
+  navigateToApply() {
+    this.router.navigate(['/apply'], { 
+      queryParams: { 
+        text: this.textToLabel 
+      } 
+    });
   }
 }

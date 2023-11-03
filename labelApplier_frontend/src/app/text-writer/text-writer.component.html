@@ -5,12 +5,11 @@
     <div class="text-form-container">
         <h2>Enter your text here:</h2>
         <div class="container">
-            <textarea class="custom-textarea" rows="24"></textarea>
+            <textarea ngModel [(ngModel)]="textToLabel" class="custom-textarea" rows="24"></textarea>
         </div>
         <div style="width: 80%; display: flex; justify-content: center;">
-            <button class="submit-btn">Proceed</button>
+            <button (click)="navigateToApply()" class="submit-btn">Proceed</button>
             <button (click)="navigateToLabels()" class="labels-btn">Manage labels</button>
         </div>
-        
     </div>
 </body>

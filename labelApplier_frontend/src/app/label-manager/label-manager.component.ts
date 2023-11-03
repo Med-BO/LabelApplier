@@ -17,4 +17,13 @@ export class LabelManagerComponent implements OnInit {
       console.log(this.labels);
     });
   }
+
+  deleteLabel(label_name: string) {
+    this.labelService.deleteLabel(label_name).subscribe((data) => {
+      console.log(data);
+      this.labelService.getAllLabels().subscribe((data) => {
+        this.labels = data;
+      });
+    });
+  }
 }

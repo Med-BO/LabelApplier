@@ -1,18 +1,33 @@
 <body>
     <div class="page-header">
         <h1>Label Manager</h1>
+        <button (click)="openAddLabelModal()" class="add-btn">+ Add Label</button>
     </div>
     <div class="labels-list">
-        <div class="label-container" *ngFor="let label of labels">
-            <div class="label-name">
-                {{label.label_name}}
-            </div>
-            <div class="label-color">
-                {{label.label_color}}
-            </div>
-            <div class="delete-btn">
-                <button (click)="deleteLabel(label.label_name)">Delete</button>
+        <div class="label-container" *ngFor="let label of labels" [style.backgroundColor]="label.label_color">
+            <div class="inside">
+                <div class="label-name">
+                    {{label.label_name}}
+                </div>
+                <div class="delete-btn">
+                    <button class="delete-btn" (click)="deleteLabel(label.label_name)">X</button>
+                </div>
             </div>
         </div>
+    </div>
+    <div class="add-modal" *ngIf="modalVisibility">
+        <div class="modal-header">
+            <h3>Add a new label</h3>
+        </div>
+        <hr>
+        <div class="modal-body">
+            <label for="label-name">Label Name:</label><br>
+            <input id="label-name" type="text" ngModel [(ngModel)]="labelName"><br><br>
+            <label for="label-color">Label color:</label><br>
+            <input id="label-color" type="color" ngModel [(ngModel)]="labelColor"><br>
+        </div>
+        <button (click)="addLabel()" class="confirm-add-btn">
+           Add 
+        </button>
     </div>
 </body>

@@ -3,4 +3,33 @@
     border-radius: 10px;
     padding: 10px;
     margin: 10px;
+    cursor: pointer;
+    border: none;
+    box-shadow: none;
+}
+
+body {
+    padding: 10px;
+}
+
+.export-btn {
+    margin: 10px;
+    background-color: #4CAF50;
+    border-radius: 6px;
+    border: none;
+    box-shadow: none;
+    padding: 6px;
+    color: white;
+    cursor: pointer;
+}
+
+.export-btn:disabled {
+    margin: 10px;
+    background-color: #81a383;
+    border-radius: 6px;
+    border: none;
+    box-shadow: none;
+    padding: 6px;
+    color: white;
+    cursor:auto;
 }

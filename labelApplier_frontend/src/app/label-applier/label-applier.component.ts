@@ -29,12 +29,7 @@ export class LabelApplierComponent implements OnInit {
     });
   }
 
-  annotations: Annotation[] = [
-    new Annotation(3, 11, 'Date', '#0069d9'),
-    new Annotation(36, 45, 'City', '#dc3545'),
-    new Annotation(47, 52, 'Country', '#28a745'),
-    new Annotation(77, 85, 'Time', '#5a6268'),
-  ];
+  annotations: Annotation[] = [];
 
   events: string[] = [];
 
@@ -67,5 +62,32 @@ export class LabelApplierComponent implements OnInit {
 
   onRemoveAnnotation(annotation: Annotation): void {
     this.events.push(`Removed '${annotation}'`);
+  }
+
+  exportToJson() {
+    const formattedAnnotations = this.annotations.map(annotation => {
+      const annotatedText = this.textToLabel.substring(annotation.startIndex, annotation.endIndex);
+      return {
+        start: annotation.startIndex,
+        end: annotation.endIndex,
+        label: annotation.label,
+        text: annotatedText,
+      };
+    });
+
+    const jsonExportData = {
+      document: this.textToLabel,
+      annotation: formattedAnnotations,
+    };
+
+    const jsonBlob = new Blob([JSON.stringify(jsonExportData, null, 2)], { type: 'application/json' });
+    const url = window.URL.createObjectURL(jsonBlob);
+    const a = document.createElement('a');
+    a.href = url;
+    a.download = 'annotations.json';
+    document.body.appendChild(a);
+    a.click();
+    window.URL.revokeObjectURL(url);
+    document.body.removeChild(a);
   }
 }

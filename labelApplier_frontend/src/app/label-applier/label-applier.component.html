@@ -1,18 +1,21 @@
-<div>
-    <ngx-annotate-text
-        [(annotations)]="annotations"
-        [removable]="true"
-        [text]="textToLabel"
-        annotationClass="my-annotation"
-        (clickAnnotation)="onClickAnnotation($event)"
-        (removeAnnotation)="onRemoveAnnotation($event)"
-        #annotateText>
-    </ngx-annotate-text>
-</div>
-
-
-<div class="labels-list">
-    <button type="button" class="label-container" *ngFor="let label of labels" (click)="addAnnotation(label.label_name, label.label_color)">
-        {{label.label_name}}
-    </button>
-</div>
+<body>
+    <h2>Label list: </h2>
+    <div class="labels-list">
+        <button type="button" class="label-container" *ngFor="let label of labels" (click)="addAnnotation(label.label_name, label.label_color)" [style.backgroundColor]="label.label_color">
+            {{label.label_name}}
+        </button>
+    </div>
+    <h2>Text: </h2>
+    <div>
+        <ngx-annotate-text
+            [(annotations)]="annotations"
+            [removable]="true"
+            [text]="textToLabel"
+            annotationClass="my-annotation"
+            (clickAnnotation)="onClickAnnotation($event)"
+            (removeAnnotation)="onRemoveAnnotation($event)"
+            #annotateText>
+        </ngx-annotate-text>
+    </div>
+    <button class="export-btn" [disabled]="annotations.length === 0" (click)="exportToJson()">Export to JSON</button>
+</body>

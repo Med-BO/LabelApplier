@@ -11,6 +11,7 @@ import {MatInputModule} from '@angular/material/input';
 import {MatFormFieldModule} from '@angular/material/form-field';
 import {FormsModule} from '@angular/forms';
 import { HttpClient, HttpClientModule, HttpHandler, HttpHeaderResponse } from '@angular/common/http';
+import { NgxAnnotateTextModule } from 'ngx-annotate-text';
 
 @NgModule({
   declarations: [
@@ -26,7 +27,8 @@ import { HttpClient, HttpClientModule, HttpHandler, HttpHeaderResponse } from '@
     MatInputModule,
     MatFormFieldModule,
     FormsModule,
-    HttpClientModule
+    HttpClientModule,
+    NgxAnnotateTextModule
   ],
   providers: [HttpClient, HttpClientModule, HttpHeaderResponse],
   bootstrap: [AppComponent]

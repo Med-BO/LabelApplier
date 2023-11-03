@@ -1,11 +1,18 @@
-<p>{{textToLabel}}</p>
+<div>
+    <ngx-annotate-text
+        [(annotations)]="annotations"
+        [removable]="true"
+        [text]="textToLabel"
+        annotationClass="my-annotation"
+        (clickAnnotation)="onClickAnnotation($event)"
+        (removeAnnotation)="onRemoveAnnotation($event)"
+        #annotateText>
+    </ngx-annotate-text>
+</div>
+
+
 <div class="labels-list">
-    <div class="label-container" *ngFor="let label of labels">
-        <div class="label-name">
-            {{label.label_name}}
-        </div>
-        <div class="label-color">
-            {{label.label_color}}
-        </div>
-    </div>
+    <button type="button" class="label-container" *ngFor="let label of labels" (click)="addAnnotation(label.label_name, label.label_color)">
+        {{label.label_name}}
+    </button>
 </div>
